@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quora Question Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-filter"></i>
+                <span>QQC</span>
+            </div>
+            <ul class="nav-links">
+                <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('team') }}">Team</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-filter"></i> Quora Question Classifier</h1>
+            <p>Classify questions by category and detect spam</p>
+        </header>
+        
+        <main>
+            <section class="form-section">
+                <form id="question-form" method="POST" action="{{ url_for('predict') }}">
+                    <div class="input-group">
+                        <label for="question">Enter your question:</label>
+                        <textarea 
+                            id="question" 
+                            name="question" 
+                            rows="4" 
+                            placeholder="Curious about something? Start typing..." 
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-search"></i> Classify Question
+                    </button>
+                </form>
+            </section>
+            
+            <section class="result-section" id="result-container" style="display: none;">
+                <div class="loader" id="loader">
+                    <div class="spinner"></div>
+                </div>
+                
+                <div class="result-card" id="result-card">
+                    <h2>Classification Result</h2>
+                    <div class="result-content">
+                        <p><strong>Question:</strong> <span id="result-question"></span></p>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <h3>Spam Detection</h3>
+                                <p><strong>Prediction:</strong> <span id="result-spam-prediction" class="prediction-label"></span></p>
+                                <p><strong>Confidence:</strong> <span id="result-spam-confidence"></span>%</p>
+                                <div class="item-icon">
+                                    <i id="result-spam-icon" class="fas"></i>
+                                </div>
+                            </div>
+                            <div class="result-item">
+                                <h3>Category</h3>
+                                <p><strong>Prediction:</strong> <span id="result-category-prediction" class="category-label"></span></p>
+                                <p><strong>Confidence:</strong> <span id="result-category-confidence"></span>%</p>
+                                <div class="item-icon">
+                                    <i id="result-category-icon" class="fas fa-tag"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="categories-section">
+                <h2>Categories</h2>
+                <div class="categories-grid">
+                    {% for category in categories %}
+                    <div class="category-item">
+                        <div class="category-icon"><i class="fas 
+                            {% if category == 'Health' %}fa-heartbeat
+                            {% elif category == 'Sports' %}fa-futbol
+                            {% elif category == 'Politics' %}fa-landmark
+                            {% elif category == 'Entertainment' %}fa-film
+                            {% elif category == 'Science' %}fa-flask
+                            {% elif category == 'Education' %}fa-graduation-cap
+                            {% elif category == 'Spam' %}fa-ban
+                            {% elif category == 'Business' %}fa-briefcase
+                            {% elif category == 'Technology' %}fa-microchip
+                            {% else %}fa-tag{% endif %}"></i></div>
+                        <div class="category-name">{{ category }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 Quora Question Classifier | Built with Flask and ML</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+</body>
+</html>

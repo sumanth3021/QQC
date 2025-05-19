@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quora Question Classifier - Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-filter"></i>
+                <span>QQC</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('team') }}">Team</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-filter"></i> Quora Question Classifier</h1>
+            <p>Classify questions by category and detect spam</p>
+        </header>
+        
+        <main>
+            <section class="result-page">
+                <div class="result-card {% if spam_prediction == 'spam' %}spam{% else %}not-spam{% endif %}">
+                    <h2>Classification Result</h2>
+                    <div class="result-content">
+                        <p><strong>Question:</strong> {{ question }}</p>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <h3>Spam Detection</h3>
+                                <p><strong>Prediction:</strong> 
+                                    <span class="prediction-label {% if spam_prediction == 'spam' %}spam{% else %}not-spam{% endif %}">
+                                        {{ spam_prediction }}
+                                    </span>
+                                </p>
+                                <p><strong>Confidence:</strong> {{ spam_confidence }}%</p>
+                                <div class="item-icon">
+                                    {% if spam_prediction == 'spam' %}
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    {% else %}
+                                        <i class="fas fa-check-circle"></i>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="result-item">
+                                <h3>Category</h3>
+                                <p><strong>Prediction:</strong> 
+                                    <span class="category-label {{ category_prediction|lower }}">
+                                        {{ category_prediction }}
+                                    </span>
+                                </p>
+                                <p><strong>Confidence:</strong> {{ category_confidence }}%</p>
+                                <div class="item-icon">
+                                    <i class="fas 
+                                        {% if category_prediction == 'Health' %}fa-heartbeat
+                                        {% elif category_prediction == 'Sports' %}fa-futbol
+                                        {% elif category_prediction == 'Politics' %}fa-landmark
+                                        {% elif category_prediction == 'Entertainment' %}fa-film
+                                        {% elif category_prediction == 'Science' %}fa-flask
+                                        {% elif category_prediction == 'Education' %}fa-graduation-cap
+                                        {% elif category_prediction == 'Spam' %}fa-ban
+                                        {% elif category_prediction == 'Business' %}fa-briefcase
+                                        {% elif category_prediction == 'Technology' %}fa-microchip
+                                        {% else %}fa-tag{% endif %}"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <a href="{{ url_for('index') }}" class="btn back-btn">
+                        <i class="fas fa-arrow-left"></i> Try Another Question
+                    </a>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 Quora Question Classifier | Built with Flask and ML</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+</body>
+</html>

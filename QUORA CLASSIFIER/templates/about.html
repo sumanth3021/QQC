@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Quora Question Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-filter"></i>
+                <span>QQC</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('team') }}">Team</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-info-circle"></i> About the Project</h1>
+            <p>Understanding our Quora Question Classifier</p>
+        </header>
+        
+        <main>
+            <section class="about-section fade-in">
+                <div class="about-overview">
+                    <h2>What We Do</h2>
+                    <p>The Quora Question Classifier is an advanced machine learning application that helps users identify the category of their questions and detect potential spam content. Our classifier uses state-of-the-art natural language processing techniques to analyze question text and provide accurate categorization.</p>
+                </div>
+                
+                <div class="about-features">
+                    <h2>Key Features</h2>
+                    <div class="features-grid">
+                        <div class="feature-card slide-in-left">
+                            <div class="feature-icon">
+                                <i class="fas fa-tag"></i>
+                            </div>
+                            <h3>Question Categorization</h3>
+                            <p>Automatically categorizes questions into relevant topics like Health, Technology, Sports, and more.</p>
+                        </div>
+                        
+                        <div class="feature-card slide-in-right">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Spam Detection</h3>
+                            <p>Identifies potentially spammy or low-quality questions to help maintain content quality.</p>
+                        </div>
+                        
+                        <div class="feature-card slide-in-left">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h3>Confidence Scoring</h3>
+                            <p>Provides confidence percentages for each prediction to indicate reliability.</p>
+                        </div>
+                        
+                        <div class="feature-card slide-in-right">
+                            <div class="feature-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3>Real-time Processing</h3>
+                            <p>Delivers instant results with a smooth, responsive user interface.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-tech">
+                    <h2>Our Technology</h2>
+                    <div class="tech-content">
+                        <div class="tech-text fade-in">
+                            <p>Our classification system is built using a combination of advanced machine learning algorithms and natural language processing techniques. The core model is trained on a diverse dataset of questions from various domains to ensure accuracy and robustness.</p>
+                            <p>We employ a two-stage classification pipeline:</p>
+                            <ul>
+                                <li>First, a binary classifier determines if the question is legitimate or spam</li>
+                                <li>Then, legitimate questions are processed by a multi-class classifier to determine the most appropriate category</li>
+                            </ul>
+                            <p>The system is continuously improved through regular model updates and feedback-based learning.</p>
+                        </div>
+                        <div class="tech-stack zoom-in">
+                            <h3>Tech Stack</h3>
+                            <div class="tech-items">
+                                <div class="tech-item"><i class="fab fa-python"></i><span>Python</span></div>
+                                <div class="tech-item"><i class="fas fa-brain"></i><span>TensorFlow</span></div>
+                                <div class="tech-item"><i class="fas fa-fire"></i><span>PyTorch</span></div>
+                                <div class="tech-item"><i class="fab fa-flask"></i><span>Scikit-learn</span></div>
+                                <div class="tech-item"><i class="fab fa-html5"></i><span>HTML5</span></div>
+                                <div class="tech-item"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+                                <div class="tech-item"><i class="fab fa-js"></i><span>JavaScript</span></div>
+                                <div class="tech-item"><i class="fab fa-flask"></i><span>Flask</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 Quora Question Classifier | Built with Flask and ML</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/about.js') }}"></script>
+</body>
+</html>

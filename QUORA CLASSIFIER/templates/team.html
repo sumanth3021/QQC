@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Team - Quora Question Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/team.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <i class="fas fa-filter"></i>
+          <span>QQC</span>
+        </div>
+        <ul class="nav-links">
+          <li class="active">
+            <a href="{{ url_for('index') }}">Home</a>
+          </li>
+          <li>
+            <a href="{{ url_for('about') }}">About</a>
+          </li>
+          <li>
+            <a href="{{ url_for('team') }}">Team</a>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <header>
+        <h1><i class="fas fa-users"></i> Our Team</h1>
+        <p>Meet the team members</p>
+      </header>
+
+      <main>
+        <section class="team-section">
+          <div class="team-grid">
+            <!-- Team Member 1 -->
+            <div class="team-card">
+              <div class="member-image">
+                <img src="static\images\sumanth.jpg" alt="John Doe" class="profile-pic" />
+              </div>
+              <div class="member-info">
+                <h3>SUMANTH</h3>
+                <p class="role">TEAM LEAD</p>
+                <p class="description">21B21A43A1</p>
+                <div class="social-links">
+                  <a href="https://github.com/sumanth3021"><i class="fab fa-github"></i></a>
+                  <a href="https://www.linkedin.com/in/sumanth30/"><i class="fab fa-linkedin"></i></a>
+                  <a href="mailto:sumanthppolothu@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="team-card">
+              <div class="member-image">
+                <img src="static\images\sravanth.jpg" alt="Jane Smith" class="profile-pic" />
+              </div>
+              <div class="member-info">
+                <h3>SRAVANTH</h3>
+                <p class="description">21B21A43A1</p>
+                <div class="social-links">
+                  <a href="https://github.com/SravanthKarri
+"><i class="fab fa-github"></i></a>
+                  <a href="https://www.linkedin.com/in/sravanth-karri-49516819a/"><i class="fab fa-linkedin"></i></a>
+                  <a href="mailto:sravanth94404@gmail.com 
+@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="team-card">
+              <div class="member-image">
+                <img src="static\images\vamsi.jpg" alt="Mike Wilson" class="profile-pic" />
+              </div>
+              <div class="member-info">
+                <h3>VAMSI CHARAN</h3>
+                <p class="description">21B21A4387</p>
+                <div class="social-links">
+                  <a href="https://github.com/vamsicharan "><i class="fab fa-github"></i></a>
+                  <a href="https://www.linkedin.com/in/neelam-vamsi-charan"><i class="fab fa-linkedin"></i></a>
+                  <a href="mailto:vamsicharan585@gmail.com
+"><i class="fas fa-envelope"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Team Member 4 -->
+            <div class="team-card">
+              <div class="member-image">
+                <img src="static\images\sai durga.jpg" alt="Sarah Brown" class="profile-pic" />
+              </div>
+              <div class="member-info">
+                <h3>SAI DURGA</h3>
+                <p class="description">21B21A4333</p>
+                <div class="social-links">
+                  <a href="https://github.com/nani2439 "><i class="fab fa-github"></i></a>
+                  <a href="https://www.linkedin.com/in/sai-durga-aketi-0223962b4
+"><i class="fab fa-linkedin"></i></a>
+                  <a href="mailto:naniaketi5@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Team Member 5 -->
+            <div class="team-card">
+              <div class="member-image">
+                <img src="static\images\sandeep.jpg" alt="Alex Johnson" class="profile-pic" />
+              </div>
+              <div class="member-info">
+                <h3>SANDEEP</h3>
+                <p class="description">21B21A4362</p>
+                <div class="social-links">
+                  <a href="https://github.com/sandeep-sivaram"><i class="fab fa-github"></i></a>
+                  <a href="https://www.linkedin.com/in/sandeep-sivaram-89457229a
+"><i class="fab fa-linkedin"></i></a>
+                  <a href="mailto:sandeepsivaraam423@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>&copy; 2025 Quora Question Classifier | Built with Flask and ML</p>
+      </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
